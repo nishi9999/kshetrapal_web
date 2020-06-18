@@ -39,7 +39,7 @@
 					<?php
 				endif;
 
-				get_template_part( 'template-parts/footer/site', 'info' );
+				echo "copyright @ 2020 , <a href='http://www.kshetrapal.com' style='color:#fff;'>www.kshetrapal.com</a>";
 				?>
 			</div><!-- .wrap -->
 		</footer><!-- #colophon -->

@@ -1042,7 +1042,8 @@ input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-	background: #767676;
+	/*background: #767676;*/
+	color:gray;
 }
 
 button.secondary:hover,
@@ -2309,6 +2310,8 @@ body:not(.twentyseventeen-front-page) .entry-header {
 
 .site-footer {
 	border-top: 1px solid #eee;
+	background-color:#000c;
+	color: white;
 }
 
 .site-footer .wrap {
@@ -3810,9 +3813,9 @@ p > object:only-child {
 
 	/* Posts */
 
-	.site-content {
+	/*.site-content {
 		padding: 5.5em 0 0;
-	}
+	}*/
 
 	.single-post .entry-title,
 	.page .entry-title {
