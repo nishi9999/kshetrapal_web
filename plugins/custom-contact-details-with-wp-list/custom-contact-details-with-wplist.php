@@ -221,8 +221,7 @@ function showdetails_shortcode() {
         foreach($items as $key => $item){
         $str .= '<tr>';
         $str .= '<td>'.$item["date"].'</td><td>'.$item["name"].'</td><td>'.$item["phone"].'</td><td>'.$item["address"].'</td>';
-        $str .= '</tr>';     
-          $i++; 
+        $str .= '</tr>';      
         }
         $str .= '</tboday><tfoot><tr><th>Date</th><th>Name</th><th>Phone</th><th>Address</th></tr></tfoot></table>';
         $str .= '<script>$(document).ready(function() { $("#datatable").DataTable({responsive: true});} );</script>' ;

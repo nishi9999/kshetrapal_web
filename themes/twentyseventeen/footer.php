@@ -39,7 +39,7 @@
 					<?php
 				endif;
 
-				echo "copyright @ 2020 , <a href='http://www.kshetrapalmandir.in' style='color:#fff;'>www.kshetrapalmandir.in</a>";
+				echo "<div style='float:left;line-height:40px;'> copyright @ 2020 , <a href='http://www.kshetrapalmandir.in' style='color:#fff;'>www.kshetrapalmandir.in</a></div><div class='social_fb'><a href='https://www.facebook.com/Kshetrapal.Mandir.Ltp/' target='_blank'><img src='http://kshetrapalmandir.in/wp-content/themes/twentyseventeen/assets/images/facebook.png' width=40px;></a></div>";
 				?>
 			</div><!-- .wrap -->
 		</footer><!-- #colophon -->

@@ -357,6 +357,10 @@ template {
 	margin-left: auto;
 	margin-right: auto;
 }
+.social_fb
+{
+	float:right;
+}
 
 /*--------------------------------------------------------------
 4.0 Clearings
@@ -3230,6 +3234,7 @@ p > object:only-child {
 	body.customize-partial-edit-shortcuts-shown .site-header .site-title {
 		padding-left: 0;
 	}
+	
 }
 
 @media screen and (min-width: 30em) {
@@ -3359,6 +3364,7 @@ p > object:only-child {
 	.gallery-columns-4 .gallery-item {
 		max-width: 25%;
 	}
+	
 }
 
 @media screen and (min-width: 48em) {
@@ -4148,6 +4154,7 @@ p > object:only-child {
 	.comment-body {
 		margin-left: 0;
 	}
+	
 }
 
 @media screen and ( min-width: 79em ) {
@@ -4162,6 +4169,7 @@ p > object:only-child {
 	.twentyseventeen-front-page .entry-content blockquote.alignright {
 		margin-right: -20%;
 	}
+	
 }
 
 @media screen and ( max-width: 48.875em ) and ( min-width: 48em ) {
@@ -4170,6 +4178,8 @@ p > object:only-child {
 	.admin-bar .site-navigation-hidden.navigation-top {
 		top: 46px;
 	}
+    
+
 }
 
 /*--------------------------------------------------------------
@@ -4337,4 +4347,5 @@ p > object:only-child {
 	.site-footer {
 		padding: 0;
 	}
+	
 }
