@@ -39,7 +39,7 @@
 					<?php
 				endif;
 
-				echo "copyright @ 2020 , <a href='http://www.kshetrapal.com' style='color:#fff;'>www.kshetrapal.com</a>";
+				echo "copyright @ 2020 , <a href='http://www.kshetrapalmandir.in' style='color:#fff;'>www.kshetrapalmandir.in</a>";
 				?>
 			</div><!-- .wrap -->
 		</footer><!-- #colophon -->

@@ -41,7 +41,6 @@ function wpsc_details_form_page_handler()
     $default = array(
         'id' => 0,
         'name' => '',
-        'email' => '',
         'address'=> '',
         'phone' => 0,
         'date' => ''
@@ -140,14 +139,7 @@ function wpsc_details_form_meta_box_handler($item)
                            required>
                 </p>
             </div>
-            <div>
-                <p>
-                    <label for="email"><?php _e('E-Mail:') ?></label>
-                    <br>
-                    <input id="email" name="email" type="email" value="<?php echo esc_attr($item['email']) ?>"
-                           required>
-                </p>
-            </div>
+            
             <div>
                 <p>
                     <label for="address"><?php _e('Address:') ?></label>

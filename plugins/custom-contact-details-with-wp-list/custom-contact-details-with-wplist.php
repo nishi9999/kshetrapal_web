@@ -23,7 +23,6 @@ function wpsc_install()
     $sql = "CREATE TABLE " . $table_name . " (
       id int(11) NOT NULL AUTO_INCREMENT,
       name VARCHAR (50) NOT NULL,
-      email VARCHAR(100) NOT NULL,
       address VARCHAR(500) NOT NULL,
       phone int(11) NOT NULL,
       date date NOT NULL
@@ -37,7 +36,6 @@ function wpsc_install()
         $sql = "CREATE TABLE " . $table_name . " (
           id int(11) NOT NULL AUTO_INCREMENT,
           name VARCHAR (50) NOT NULL,
-          email VARCHAR(100) NOT NULL,
           address VARCHAR(500) NOT NULL,
           phone int(11),
           date date
@@ -121,7 +119,6 @@ class Custom_contact_details_with_wp_List extends WP_List_Table
         $columns = array(
             'cb' => '<input type="checkbox" />',
             'name' => __('Name'),
-            'email' => __('E-Mail'),
             'address' => __('Address'),
             'phone' => __('Phone'),
             'date' => __('Date')  
@@ -133,7 +130,6 @@ class Custom_contact_details_with_wp_List extends WP_List_Table
     {
         $sortable_columns = array(
             'name' => array('name', true),
-            'email' => array('email', true),
             'address' => array('address',true),
             'phone' => array('phone', true),
             'date' => array('date',true)
@@ -198,7 +194,6 @@ function wpsc_validate_detail($item)
 {
     $messages = array();
     if (empty($item['name'])) $messages[] = __('Name is required');
-    if (!empty($item['email']) && !is_email($item['email'])) $messages[] = __('E-Mail is in wrong format');
     if (empty($item['address'])) $messages[] = __('Address is required');
     if (empty($item['phone'])) $messages[] = __('Phone is required');
     if (empty($item['date'])) $messages[] = __('Date is required');
@@ -216,19 +211,21 @@ function showdetails_shortcode() {
         
         $order = (isset($_REQUEST['order']) && in_array($_REQUEST['order'], array('asc', 'desc'))) ? $_REQUEST['order'] : 'desc';
         $items = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name ORDER BY id $order LIMIT %d OFFSET %d", $per_page, $paged), ARRAY_A);
-        $i = 1;
+        
         $str = '<link rel="stylesheet" type="text/css" href="'.plugin_dir_url(__FILE__).'includes/css/jquery.dataTables.min.css">';
+        $str .= '<link rel="stylesheet" type="text/css" href="'.plugin_dir_url(__FILE__).'includes/css/responsive.dataTables.min.css">';
         $str .= '<script src="'.plugin_dir_url(__FILE__).'includes/js/jquery-3.5.1.js"></script>';
         $str .= '<script src="'.plugin_dir_url(__FILE__).'includes/js/jquery.dataTables.min.js"></script>';
-        $str .= '<table id="datatable" class="display" style="width:100%"><thead><tr><th>Number</th><th>Date</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th></tr></thead><tboday>';
+        $str .= '<script src="'.plugin_dir_url(__FILE__).'includes/js/dataTables.responsive.min.js"></script>';
+        $str .= '<table id="datatable" class="display nowrap" style="width:100%"><thead><tr><th>Date</th><th>Name</th><th>Phone</th><th>Address</th></tr></thead><tboday>';
         foreach($items as $key => $item){
         $str .= '<tr>';
-        $str .= '<td>'.$i.'</td><td>'.$item["date"].'</td><td>'.$item["name"].'</td><td>'.$item["email"].'</td><td>'.$item["phone"].'</td><td>'.$item["address"].'</td>';
+        $str .= '<td>'.$item["date"].'</td><td>'.$item["name"].'</td><td>'.$item["phone"].'</td><td>'.$item["address"].'</td>';
         $str .= '</tr>';     
           $i++; 
         }
-        $str .= '</tboday><tfoot><tr><th>Number</th><th>Date</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th></tr></tfoot></table>';
-        $str .= '<script>$(document).ready(function() { $("#datatable").DataTable();} );</script>' ;
+        $str .= '</tboday><tfoot><tr><th>Date</th><th>Name</th><th>Phone</th><th>Address</th></tr></tfoot></table>';
+        $str .= '<script>$(document).ready(function() { $("#datatable").DataTable({responsive: true});} );</script>' ;
         return $str;
 }
 add_shortcode( 'anantkalen_paath_list', 'showdetails_shortcode' );
